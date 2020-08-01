@@ -17,10 +17,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: 初始化Python
-      uses: actions/setup-python@v2
+    - name: Set up Python #安装python
+      uses: actions/setup-python@v1
       with:
-        python-version: 3.7
+        python-version: 3.8
+    - name: Install requests #安装requests
+      run: |
+        pip install requests
     - name: 签到
       run: |
         string="${{ secrets.COOKIE }}"
